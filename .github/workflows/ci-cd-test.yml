@@ -1,0 +1,21 @@
+name: Challenge ci cd python pipeline
+on: [push]
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - run: python hello.py
+
+  second-job:
+    needs: [first-job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Hello: upload artifact"
+          path: .
