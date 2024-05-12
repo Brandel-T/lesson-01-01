@@ -8,7 +8,7 @@ env:
 
 jobs:
   test:
-    runs-on: [ubuntu-latest, Linux, internal]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
